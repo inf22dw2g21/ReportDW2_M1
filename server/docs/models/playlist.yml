@@ -1,0 +1,14 @@
+definitions:        
+  Playlist:
+    type: object
+    properties:
+      playlist:
+        type: object
+        properties:
+          id:
+            type: number
+          title:
+            type: string
+            example: My Playlist 1
+          user_id:
+            type: number

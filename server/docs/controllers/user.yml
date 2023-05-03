@@ -1,0 +1,47 @@
+$ref: './header.yml'
+paths:
+  /api/auth/register:
+    post:
+      tags:
+        - User
+      summary: Create User
+      security: []  # No security
+      produces:
+      - application/json
+      parameters:
+        - in: body
+          name: body
+          description: Create User
+          required: true
+          schema:
+            $ref: '#/definitions/User'
+      responses:
+        200:
+          description: Success Message
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/User'
+  /api/auth/login:
+    post:
+      tags:
+        - User
+      summary: User Login
+      security: []  # No security
+      produces:
+      - application/json
+      parameters:
+        - in: body
+          name: body
+          description: Login User
+          required: true
+          schema:
+            $ref: '#/definitions/UserLogin'
+      responses:
+        200:
+          description: Success Message
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/UserLogin'
+

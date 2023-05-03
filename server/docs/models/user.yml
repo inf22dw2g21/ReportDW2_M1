@@ -1,0 +1,29 @@
+definitions:
+  User:
+    type: object
+    properties:
+      name:
+        type: string
+        example: John Doe
+      email:
+        type: string
+        example: john.doe@example.com
+      password:
+        type: string
+        example: Password123
+    required:
+      - name
+      - email
+      - password
+  UserLogin:
+    type: object
+    properties:
+      email:
+        type: string
+        example: john.doe@example.com
+      password:
+        type: string
+        example: Password123
+    required:
+      - email
+      - password

@@ -1,0 +1,21 @@
+definitions:        
+  Song:
+    type: object
+    properties:
+      song:
+        type: object
+        properties:
+          id:
+            type: number
+          artist:
+            type: string
+            example: Taylor Swift
+          name:
+            type: string
+            example: Red
+          playlist_id:
+            type: number
+            example: 1
+        required:
+          - artist
+          - name

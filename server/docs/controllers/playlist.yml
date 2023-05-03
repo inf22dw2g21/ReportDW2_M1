@@ -1,0 +1,160 @@
+$ref: './header.yml'
+paths:
+  /api/playlists:
+    get:
+      tags:
+      - Playlist
+      summary: Retrieve playlists from user
+      operationId: retrievePlaylists
+      responses:
+        "200":
+          description: Array of playlists model instances
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Playlist'
+                x-content-type: application/json
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/inline_response_200'
+      x-swagger-router-controller: PlaylistsController
+    post:
+      tags:
+      - PlaylistsController
+      summary: Create playlist
+      operationId: createPlaylist
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Playlist'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/Playlist'
+      responses:
+        "200":
+          description: Create a Playlist model instance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Playlist'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Playlist'
+        "400":
+          description: Bad request
+      x-swagger-router-controller: PlaylistsController
+  /api/playlists/{id}:
+    get:
+      tags:
+      - PlaylistsController
+      summary: Retrieve Playlist id
+      operationId: retrievePlaylist
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          minimum: 1
+          type: integer
+          format: int64
+        examples:
+          one:
+            summary: Retrieve Playlist id 1
+            value: 1
+          two:
+            summary: Retrieve Playlist id 2
+            value: 2
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Playlist'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Playlist'
+        "400":
+          description: Bad request
+        "404":
+          description: id not found
+      x-swagger-router-controller: PlaylistsController
+    patch:
+      tags:
+      - PlaylistsController
+      summary: Update Playlist
+      operationId: updateNPlaylist
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          minimum: 1
+          type: integer
+          format: int64
+        examples:
+          one:
+            summary: Update Playlist id 1
+            value: 1
+          two:
+            summary: Update Playlist id 2
+            value: 2
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Playlist'
+            examples:
+              AeroportoExample01:
+                $ref: '#/components/examples/PlaylistExample01'
+              AeroportoExample02:
+                $ref: '#/components/examples/PlaylistExample02'
+        required: true
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                description: Playlist PATCH success
+                x-content-type: application/json
+        "400":
+          description: Bad request
+        "404":
+          description: id not found
+      x-swagger-router-controller: PlaylistsController
+    delete:
+      tags:
+      - PlaylistsController
+      summary: Delete Playlist
+      operationId: deletePlaylist
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          minimum: 1
+          type: integer
+          format: int64
+        examples:
+          one:
+            summary: Delete Playlist id 1
+            value: 1
+          two:
+            summary: Delete Playlist id 2
+            value: 2
+      responses:
+        "204":
+          description: No Content
+        "404":
+          description: id not found
+      x-swagger-router-controller: PlaylistsController

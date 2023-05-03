@@ -1,0 +1,123 @@
+$ref: './header.yml'
+paths:
+  /api/playlists/{id}/songs:
+    get:
+      tags:
+      - Playlist Songs
+      summary: Retrieve playlist songs
+      operationId: retrieveSongs
+      responses:
+        "200":
+          description: Array of Songs model instances
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Song'
+                x-content-type: application/json
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/inline_response_200'
+      x-swagger-router-controller: PlaylistsController
+    post:
+      tags:
+      - PlaylistsController
+      summary: Create playlist song
+      operationId: createSong
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Song'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/Song'
+      responses:
+        "200":
+          description: Create a Song model instance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Song'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Song'
+        "400":
+          description: Bad request
+      x-swagger-router-controller: PlaylistsController
+  /api/songs/{id}:
+    patch:
+      tags:
+      - PlaylistsController
+      summary: Update Song
+      operationId: updateSong
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          minimum: 1
+          type: integer
+          format: int64
+        examples:
+          one:
+            summary: Update Song id 1
+            value: 1
+          two:
+            summary: Update Song id 2
+            value: 2
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Song'
+            examples:
+              AeroportoExample01:
+                $ref: '#/components/examples/SongExample01'
+              AeroportoExample02:
+                $ref: '#/components/examples/SongExample02'
+        required: true
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                description: Song PATCH success
+                x-content-type: application/json
+        "400":
+          description: Bad request
+        "404":
+          description: id not found
+      x-swagger-router-controller: PlaylistsController
+    delete:
+      tags:
+      - PlaylistsController
+      summary: Delete Song
+      operationId: deleteSong
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          minimum: 1
+          type: integer
+          format: int64
+        examples:
+          one:
+            summary: Delete Song id 1
+            value: 1
+          two:
+            summary: Delete Song id 2
+            value: 2
+      responses:
+        "204":
+          description: No Content
+        "404":
+          description: id not found
+      x-swagger-router-controller: PlaylistsController
