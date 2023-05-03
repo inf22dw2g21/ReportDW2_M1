@@ -23,7 +23,7 @@ class PlaylistController {
     async destroy({auth, params}) {
         const user = await auth.getUser(); //fetch user
         const {id} = params; //get playlist id choosen by the user
-        const playlist = await Project.find(id) //fetch corresponding playlist.id
+        const playlist = await Playlist.find(id) //fetch corresponding playlist.id
         AuthorizationService.verifyPermission(playlist, user); //if playlist doesn't belong to the user or playlist doesnt exist
         await playlist.delete();
         return playlist;
@@ -38,6 +38,18 @@ class PlaylistController {
         await playlist.save()
         return playlist;
     }
+
+    //show by id
+    async show({ auth, params }) {
+        const user = await auth.getUser(); // fetch user
+        const { id } = params; // get playlist id from the route parameter
+        const playlist = await Playlist.find(id); // fetch the playlist by id
+      
+        // Verify if the fetched playlist belongs to the authenticated user
+        AuthorizationService.verifyPermission(playlist, user);
+      
+        return playlist;
+      }
 }
 
 module.exports = PlaylistController

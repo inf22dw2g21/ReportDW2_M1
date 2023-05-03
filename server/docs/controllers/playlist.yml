@@ -14,35 +14,38 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Playlist'
+                  $ref: '#/schema/Playlist'
                 x-content-type: application/json
             application/xml:
               schema:
-                $ref: '#/components/schemas/inline_response_200'
+                $ref: '#/schema/Playlist/inline_response_200'
       x-swagger-router-controller: PlaylistsController
     post:
       tags:
       - PlaylistsController
       summary: Create playlist
       operationId: createPlaylist
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Playlist'
-          application/xml:
-            schema:
-              $ref: '#/components/schemas/Playlist'
+      consumes:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: Request body for creating a playlist
+          required: true
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Playlist'
       responses:
         "200":
           description: Create a Playlist model instance
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Playlist'
+                $ref: '#/schema/Playlist'
             application/xml:
               schema:
-                $ref: '#/components/schemas/Playlist'
+                $ref: '#/schema/Playlist'
         "400":
           description: Bad request
       x-swagger-router-controller: PlaylistsController
@@ -75,10 +78,10 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Playlist'
+                $ref: '#/schema/Playlist'
             application/xml:
               schema:
-                $ref: '#/components/schemas/Playlist'
+                $ref: '#/schema/Playlist'
         "400":
           description: Bad request
         "404":
@@ -106,17 +109,22 @@ paths:
           two:
             summary: Update Playlist id 2
             value: 2
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Playlist'
-            examples:
-              AeroportoExample01:
-                $ref: '#/components/examples/PlaylistExample01'
-              AeroportoExample02:
-                $ref: '#/components/examples/PlaylistExample02'
+      - name: body
+        in: body
         required: true
+        schema:
+          type: object
+          properties:
+            title:
+              type: string
+      examples:
+        example1:
+          value:
+            title: "Updated Playlist Title 1"
+        example2:
+          value:
+            title: "Updated Playlist Title 2"
+
       responses:
         "200":
           description: Success

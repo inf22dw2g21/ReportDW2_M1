@@ -22,26 +22,34 @@ module.exports = {
       basePath: '/',
 
       // Example security definitions.
+      // securityDefinitions: {
+      //   ApiKey: {
+      //     description: 'ApiKey description',
+      //     name: 'Authorization'
+      //   },
+
+      //   // OAuth2 configuration
+      //   OAuth2: {
+      //     authorizationUrl: 'https://example.com/oauth/authorize',
+      //     tokenUrl: 'https://example.com/oauth/token',
+
+      //     // define your scopes here
+      //     // remove read, write and admin if not necessary
+      //     scopes: {
+      //       read: 'Grants read access (this is just sample)',
+      //       write: 'Grants write access (this is just sample)',
+      //       admin: 'Grants read and write access to administrative information (this is just sample)'
+      //     }
+      //   },
+      // }
       securityDefinitions: {
-        ApiKey: {
-          description: 'ApiKey description',
-          name: 'Authorization'
+        jwtAuth: {
+          type: 'apiKey',
+          in: 'header',
+          name: 'Authorization',
+          description: 'JWT token for authorization',
         },
-
-        // OAuth2 configuration
-        OAuth2: {
-          authorizationUrl: 'https://example.com/oauth/authorize',
-          tokenUrl: 'https://example.com/oauth/token',
-
-          // define your scopes here
-          // remove read, write and admin if not necessary
-          scopes: {
-            read: 'Grants read access (this is just sample)',
-            write: 'Grants write access (this is just sample)',
-            admin: 'Grants read and write access to administrative information (this is just sample)'
-          }
-        },
-      }
+      },
     },
 
     // Path to the API docs

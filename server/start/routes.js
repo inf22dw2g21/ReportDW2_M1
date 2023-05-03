@@ -21,6 +21,7 @@ Route.group(() => {
   Route.post('auth/login', "UserController.login");
   Route.get('playlists', "PlaylistController.index").middleware('auth'); //middleware will use the USER JWT
   Route.post('playlists', "PlaylistController.create").middleware('auth');
+  Route.get('playlists/:id', "PlaylistController.show").middleware('auth'); //retificar para controller get by id
   Route.delete('playlists/:id', "PlaylistController.destroy").middleware('auth');
   Route.patch('playlists/:id', "PlaylistController.update").middleware('auth');
 
