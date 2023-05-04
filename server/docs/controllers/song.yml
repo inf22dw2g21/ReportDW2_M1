@@ -6,6 +6,23 @@ paths:
       - Playlist Songs
       summary: Retrieve playlist songs
       operationId: retrieveSongs
+      parameters:
+        - name: id
+          in: path
+          required: true
+          style: simple
+          explode: false
+          schema:
+            minimum: 1
+            type: integer
+            format: int64
+          examples:
+            one:
+              summary: Retrieve Songs of Playlist 1
+              value: 1
+            two:
+              summary: Retrieve Songs of Playlist 2
+              value: 2
       responses:
         "200":
           description: Array of Songs model instances
@@ -19,37 +36,48 @@ paths:
             application/xml:
               schema:
                 $ref: '#/components/schemas/inline_response_200'
-      x-swagger-router-controller: PlaylistsController
+      x-swagger-router-controller: SongController
     post:
       tags:
-      - PlaylistsController
+      - Playlist Songs
       summary: Create playlist song
       operationId: createSong
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Song'
-          application/xml:
-            schema:
-              $ref: '#/components/schemas/Song'
+      consumes:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          explode: false
+          schema: 
+            minimum: 1
+            type: integer
+            format: int64
+          examples:
+            one:
+              summary: Playlist 1
+              value: 1
+            two:
+              summary: Playlist 2
+              value: 2
+        - in: body
+          name: body
+          description: Song object that needs to be added to the playlist
+          required: true
+          schema:
+            $ref: '#/definitions/Song'
       responses:
         "200":
           description: Create a Song model instance
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Song'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/Song'
+          schema:
+            $ref: '#/definitions/Song'
         "400":
           description: Bad request
-      x-swagger-router-controller: PlaylistsController
+      x-swagger-router-controller: SongController
   /api/songs/{id}:
     patch:
       tags:
-      - PlaylistsController
+      - Playlist Songs
       summary: Update Song
       operationId: updateSong
       parameters:
@@ -70,16 +98,20 @@ paths:
             summary: Update Song id 2
             value: 2
       requestBody:
+        description: Song object that needs to be updated
+        required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Song'
-            examples:
-              AeroportoExample01:
-                $ref: '#/components/examples/SongExample01'
-              AeroportoExample02:
-                $ref: '#/components/examples/SongExample02'
-        required: true
+              type: object
+              properties:
+                artist:
+                  type: string
+                name:
+                  type: string
+              example:
+                artist: "Taylor Swift"
+                name: "Red"
       responses:
         "200":
           description: Success
@@ -87,15 +119,15 @@ paths:
             application/json:
               schema:
                 description: Song PATCH success
-                x-content-type: application/json
+                $ref: '#/components/schemas/Song'
         "400":
           description: Bad request
         "404":
           description: id not found
-      x-swagger-router-controller: PlaylistsController
+      x-swagger-router-controller: PlaylistController
     delete:
       tags:
-      - PlaylistsController
+      - Playlist Songs
       summary: Delete Song
       operationId: deleteSong
       parameters:
@@ -121,3 +153,4 @@ paths:
         "404":
           description: id not found
       x-swagger-router-controller: PlaylistsController
+      

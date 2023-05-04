@@ -43,7 +43,7 @@ class SongController {
         const song = await Song.find(id) //fetch corresponding song
         const playlist = await song.playlist().fetch() //get play
         AuthorizationService.verifyPermission(playlist, user); //if play doesn't belong to the user or play doesnt exist
-        song.merge(request.only('artist', 'name', 'listened'));
+        song.merge(request.all()); // <-- Add this line
         await song.save()
         return song;
     }
