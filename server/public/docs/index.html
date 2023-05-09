@@ -76,10 +76,10 @@ window.onload = function() {
   const ui = SwaggerUIBundle({
     url: "/swagger.json",
     dom_id: '#swagger-ui',
-    requestInterceptor: (request) => {
-      request.headers.Authorization = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjEsImlhdCI6MTY4MzE0NjY4NH0.DJ7tRoZs61sLMpXqOwVDd5fYkmFKfpmlZ7Tk5l1CdHs'
-      return request;
-    },
+    // requestInterceptor: (request) => {
+    //   request.headers.Authorization = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjEsImlhdCI6MTY4MzE0NjY4NH0.DJ7tRoZs61sLMpXqOwVDd5fYkmFKfpmlZ7Tk5l1CdHs'
+    //   return request;
+    // },
     deepLinking: true,
     presets: [
       SwaggerUIBundle.presets.apis,

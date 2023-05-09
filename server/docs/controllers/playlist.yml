@@ -6,6 +6,8 @@ paths:
       - Playlist
       summary: Retrieve playlists from user
       operationId: retrievePlaylists
+      security:
+        - jwtAuth: []
       responses:
         "200":
           description: Array of playlists model instances
@@ -25,6 +27,8 @@ paths:
       - PlaylistsController
       summary: Create playlist
       operationId: createPlaylist
+      security:
+        - jwtAuth: []
       consumes:
         - application/json
       parameters:
@@ -55,6 +59,8 @@ paths:
       - PlaylistsController
       summary: Retrieve Playlist id
       operationId: retrievePlaylist
+      security:
+        - jwtAuth: []
       parameters:
       - name: id
         in: path
@@ -92,6 +98,8 @@ paths:
       - PlaylistsController
       summary: Update Playlist
       operationId: updateNPlaylist
+      security:
+        - jwtAuth: []
       parameters:
       - name: id
         in: path
@@ -143,6 +151,8 @@ paths:
       - PlaylistsController
       summary: Delete Playlist
       operationId: deletePlaylist
+      security:
+        - jwtAuth: []
       parameters:
       - name: id
         in: path

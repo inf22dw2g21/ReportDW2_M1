@@ -6,6 +6,8 @@ paths:
       - Playlist Songs
       summary: Retrieve playlist songs
       operationId: retrieveSongs
+      security:
+        - jwtAuth: []
       parameters:
         - name: id
           in: path
@@ -42,6 +44,8 @@ paths:
       - Playlist Songs
       summary: Create playlist song
       operationId: createSong
+      security:
+        - jwtAuth: []
       consumes:
         - application/json
       parameters:
@@ -80,6 +84,8 @@ paths:
       - Playlist Songs
       summary: Update Song
       operationId: updateSong
+      security:
+        - jwtAuth: []
       parameters:
       - name: id
         in: path
@@ -130,6 +136,8 @@ paths:
       - Playlist Songs
       summary: Delete Song
       operationId: deleteSong
+      security:
+        - jwtAuth: []
       parameters:
       - name: id
         in: path
