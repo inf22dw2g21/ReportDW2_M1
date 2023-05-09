@@ -2,11 +2,8 @@ definitions:
   Playlist:
     type: object
     properties:
-      playlist:
-        type: object
-        properties:
-          title:
-            type: string
-            example: My Playlist 1
+      title:
+        type: string
+        example: My Playlist 1
     required:
       - title

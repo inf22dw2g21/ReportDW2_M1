@@ -103,21 +103,18 @@ paths:
           two:
             summary: Update Song id 2
             value: 2
-      requestBody:
-        description: Song object that needs to be updated
+      - name: body
+        in: body
         required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                artist:
-                  type: string
-                name:
-                  type: string
-              example:
-                artist: "Taylor Swift"
-                name: "Red"
+        schema:
+          type: object
+          properties:
+            artist:
+              type: string
+              example: Taylor Swift
+            name:
+              type: string
+              example: Red
       responses:
         "200":
           description: Success
