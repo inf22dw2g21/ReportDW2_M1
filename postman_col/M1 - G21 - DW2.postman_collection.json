@@ -1,0 +1,331 @@
+{
+	"info": {
+		"_postman_id": "b9ef9850-4a67-4a11-b50b-340507ad9a43",
+		"name": "M1 - G21 - DW2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23525842"
+	},
+	"item": [
+		{
+			"name": "Playlists",
+			"item": [
+				{
+					"name": "api/playlists",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3333/api/playlists",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"api",
+								"playlists"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/playlists",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:3333/api/playlists?title=My Playlist 2",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"api",
+								"playlists"
+							],
+							"query": [
+								{
+									"key": "title",
+									"value": "My Playlist 2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/playlists/{id}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3333/api/playlists/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"api",
+								"playlists",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/playlists/{id}",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "localhost:3333/api/playlists/1?title=Patch Playlist",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"api",
+								"playlists",
+								"1"
+							],
+							"query": [
+								{
+									"key": "title",
+									"value": "Patch Playlist"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/playlists/{id} Copy",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:3333/api/playlists/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"api",
+								"playlists",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Songs",
+			"item": [
+				{
+					"name": "api/playlists/{id}/songs",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3333/api/playlists/1/songs",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"api",
+								"playlists",
+								"1",
+								"songs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/playlists/{id}/songs",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:3333/api/playlists/1/songs?artist=Taylor Swift&name=Red1",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"api",
+								"playlists",
+								"1",
+								"songs"
+							],
+							"query": [
+								{
+									"key": "artist",
+									"value": "Taylor Swift"
+								},
+								{
+									"key": "name",
+									"value": "Red1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/songs/{id}",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "localhost:3333/api/songs/1?artist=Taylor Swift&name=Red2",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"api",
+								"songs",
+								"1"
+							],
+							"query": [
+								{
+									"key": "artist",
+									"value": "Taylor Swift"
+								},
+								{
+									"key": "name",
+									"value": "Red2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/songs/{id} Copy",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:3333/api/songs/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"api",
+								"songs",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "api/auth/register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:3333/api/auth/register?name=John Doo&email=johndoo@example.com&password=Password123",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"api",
+								"auth",
+								"register"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "John Doo"
+								},
+								{
+									"key": "email",
+									"value": "johndoo@example.com"
+								},
+								{
+									"key": "password",
+									"value": "Password123"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/auth/login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:3333/api/auth/login?email=johndoo@example.com&password=Password123",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "johndoo@example.com"
+								},
+								{
+									"key": "password",
+									"value": "Password123"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjMsImlhdCI6MTY4Mzc1OTA3MH0.y9KrmKF6PZHIfgJJa6few0kiaq7JSGjQzn3eZ9tGoGA",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
