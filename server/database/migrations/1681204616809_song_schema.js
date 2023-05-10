@@ -16,7 +16,7 @@ class SongSchema extends Schema {
   }
 
   down () {
-    this.drop('tasks')
+    this.drop('songs')
   }
 }
 

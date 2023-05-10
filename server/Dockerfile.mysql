@@ -1,0 +1,9 @@
+FROM mysql:5.7-debian
+
+COPY db/database_v1.sql /docker-entrypoint-initdb.d/
+
+# Add custom MySQL configuration file
+COPY my.cnf /etc/mysql/conf.d/
+
+# Make sure that MySQL will accept connections from any IP address
+RUN echo "[mysqld]\nbind-address = 0.0.0.0" > /etc/mysql/mysql.conf.d/mysqld.cnf

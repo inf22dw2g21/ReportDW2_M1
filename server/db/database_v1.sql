@@ -12,7 +12,7 @@ insert into adonis.playlists (title, user_id, created_at, updated_at) values
 ("Morning Motivation", 2, sysdate(), sysdate()),
 ("Study Focus", 2, sysdate(), sysdate()),
 ("Romantic Dinner", 2, sysdate(), sysdate()),
-("90s Nostalgia", 2, sysdate(), sysdate()),
+("90s Nostalgia", 2, sysdate(), sysdate())
 ;
 
 insert into adonis.songs (artist, name, playlist_id, created_at, updated_at) values

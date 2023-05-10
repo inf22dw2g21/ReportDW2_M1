@@ -29,14 +29,14 @@ module.exports = {
   | npm i --save sqlite3
   |
   */
-  sqlite: {
-    client: 'sqlite3',
-    connection: {
-      filename: Helpers.databasePath(`${Env.get('DB_DATABASE', 'development')}.sqlite`)
-    },
-    useNullAsDefault: true,
-    debug: Env.get('DB_DEBUG', false)
-  },
+  // sqlite: {
+  //   client: 'sqlite3',
+  //   connection: {
+  //     filename: Helpers.databasePath(`${Env.get('DB_DATABASE', 'development')}.sqlite`)
+  //   },
+  //   useNullAsDefault: true,
+  //   debug: Env.get('DB_DEBUG', false)
+  // },
 
   /*
   |--------------------------------------------------------------------------
@@ -51,11 +51,15 @@ module.exports = {
   mysql: {
     client: 'mysql2',
     connection: {
-      host: Env.get('DB_HOST', 'localhost'),
-      port: Env.get('DB_PORT', ''),
+      host: Env.get('DB_HOST', '127.0.0.1'),
+      port: Env.get('DB_PORT', '3306'),
       user: Env.get('DB_USER', 'root'),
       password: Env.get('DB_PASSWORD', ''),
       database: Env.get('DB_DATABASE', 'adonis')
+    },
+    migrations: {
+      tableName: 'adonis.schema',
+      path: './database/migrations'
     },
     debug: Env.get('DB_DEBUG', false)
   },
