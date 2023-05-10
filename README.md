@@ -21,6 +21,6 @@ O objetivo foi criar uma API de gestão de playlists, músicas nelas contidas, c
 * [adonisJS](https://adonisjs.com/)
 
 ### Apresentação do projeto
-* Capitulo 1: [Descrição do projeto](doc/c1.md)
-* Capitulo 2: [Recursos](doc/c2.md)
-* Capitulo 3: [Desenvolvimento](doc/c3.md)
+* Capitulo 1: [Descrição do projeto](docs/c1.md)
+* Capitulo 2: [Recursos](docs/c2.md)
+* Capitulo 3: [Desenvolvimento](docs/c3.md)
