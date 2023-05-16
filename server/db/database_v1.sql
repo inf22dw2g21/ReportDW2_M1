@@ -1,4 +1,36 @@
+CREATE SCHEMA IF NOT EXISTS `adonis`;
 use `adonis`;
+
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `username` VARCHAR(80) NOT NULL UNIQUE,
+  `email` VARCHAR(254) NOT NULL UNIQUE,
+  `password` VARCHAR(60) NOT NULL,
+  `created_at` DATETIME2,
+  `updated_at` DATETIME2
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS `playlists` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `title` VARCHAR(255),
+  `user_id` INT UNSIGNED,
+  FOREIGN KEY (`user_id`) REFERENCES users(`id`),
+  `created_at` DATETIME2,
+  `updated_at` DATETIME2,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS `songs` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `artist` VARCHAR(255),
+  `listened` BOOLEAN,
+  `playlist_id` INT UNSIGNED,
+  FOREIGN KEY (`playlist_id`) REFERENCES playlists(`id`),
+  `created_at` DATETIME2,
+  `updated_at` DATETIME2,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB;
 
 insert into adonis.users (username, email, password, created_at, updated_at) values 
 ("john.doe@example.com","john.doe@example.com", "$2a$10$N5/NPl/L3W35zj0NNIPmw.xwosgE41ytw2QfaCswoFm/UQyO8UaSi", sysdate(), sysdate()),

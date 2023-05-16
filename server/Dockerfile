@@ -11,6 +11,6 @@ RUN apt-get update && \
 RUN npm i -g @adonisjs/cli
 RUN npm i
 RUN chmod +x entrypoint.sh
-RUN chmod +x wait-for-it.sh
+#RUN chmod +x wait-for-it.sh
 
 CMD ["bash", "entrypoint.sh"]
