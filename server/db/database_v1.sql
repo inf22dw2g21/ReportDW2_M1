@@ -25,7 +25,6 @@ CREATE TABLE IF NOT EXISTS `songs` (
   `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(255),
   `artist` VARCHAR(255),
-  `listened` BOOLEAN,
   `playlist_id` bigint UNSIGNED,
   FOREIGN KEY (`playlist_id`) REFERENCES playlists(`id`),
   `created_at` DATETIME,
